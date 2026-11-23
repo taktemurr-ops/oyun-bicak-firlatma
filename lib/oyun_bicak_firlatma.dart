@@ -5,7 +5,6 @@ import 'package:arcade_motoru/bicak.dart';
 import 'package:flutter/material.dart';
 import 'package:studio_core/app/arcade_stage.dart';
 import 'package:studio_core/app/game_api.dart';
-import 'package:studio_core/core/game_rules.dart';
 
 const bicakId = 'oyun-bicak-firlatma';
 
@@ -88,7 +87,7 @@ final bicakConfig = GameConfig(
   rules: bicakRules,
   buildPlay: (ctx) => ArcadeStage(
     ctx: ctx,
-    create: () => bicakRules.createSim((ctx.generated as GeneratedLevel).puzzle),
+    create: () => bicakRules.createSim(ctx.generated.puzzle),
     paint: (c, s, p, t) {
       arcadeLang = ctx.lang;
       paintKnife(c, s, p, t);
